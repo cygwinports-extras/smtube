@@ -1,0 +1,6 @@
+category: Video
+requires: libgcc1 libQtCore4 libQtGui4 libQtNetwork4 libQtXml4 libstdc++6 smplayer
+sdesc: "Qt YouTube video player and downloader"
+ldesc: "This is a youtube browser for smplayer. You can browse, search, 
+download and play youtube videos. The videos are currently played in 
+smplayer."
