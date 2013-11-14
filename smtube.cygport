@@ -1,7 +1,7 @@
-inherit qt4
+inherit qt4-qmake
 
 NAME="smtube"
-VERSION=1.1
+VERSION=1.8
 RELEASE=1
 CATEGORY="Video"
 SUMMARY="Qt YouTube video player and downloader"
@@ -10,11 +10,21 @@ download and play youtube videos. The videos are currently played in smplayer."
 REQUIRES="smplayer"
 HOMEPAGE="http://smplayer.sourceforge.net/"
 SRC_URI="mirror://sourceforge/smplayer/${NAME}-${VERSION}.tar.bz2"
+PATCH_URI="1.8-makefile.patch"
 
 MAKEOPTS+=" PREFIX=/usr"
 
 src_compile() {
 	lndirs
 	cd ${B}
+#	./get_svn_revision.sh || error
+	pushd src
+	cygqmake4
+	popd
 	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
 }
